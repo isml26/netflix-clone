@@ -17,7 +17,7 @@ var userSchema = new mongoose.Schema({
     },
     profilePic: {
         type: String,
-        default: "",
+        default: "https://i.imgur.com/udp3IfH.png",
     },
     isAdmin: {
         type: Boolean,
@@ -30,6 +30,7 @@ var userSchema = new mongoose.Schema({
         transform(doc, ret) {
             ret.id = ret._id;
             delete ret._id
+            delete ret.password;
         }
     }
 });

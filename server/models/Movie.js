@@ -50,13 +50,6 @@ const movieSchema = new mongoose.Schema({
             delete ret._id
         }
     }
-}, {
-    toJSON: {
-        transform(doc, ret) {
-            ret.id = ret._id;
-            delete ret._id
-        }
-    }
 });
 
 const Movie = mongoose.model('Movie', movieSchema);

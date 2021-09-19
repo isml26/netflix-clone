@@ -51,10 +51,10 @@ function Featured({ type }) {
         alt=""
       />
       <div className="info">
-        <img
+        {/* <img
           src={content.imgTitle}
           alt=""
-        />
+        /> */}
         <span className="desc">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente rem cumque porro praesentium est, quae similique, voluptatem eaque quo eum molestias ipsa nihil asperiores iusto eligendi iure expedita, necessitatibus tempora.
         </span>
