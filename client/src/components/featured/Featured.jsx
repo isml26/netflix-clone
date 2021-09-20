@@ -1,4 +1,4 @@
-import { InfoOutlined, PlayArrow } from "@material-ui/icons";
+import { InfoOutlined, Movie, PlayArrow } from "@material-ui/icons";
 import axios from "axios";
 import React, { useEffect } from "react";
 import "./featured.scss";
@@ -9,10 +9,10 @@ function Featured({ type }) {
   useEffect(()=>{
     const getRandomContent = async()=>{
       try {
-        const res = await axios.get(`/movies/random?type=/${type}`,{
+        const res = await axios.get(`/movies/random?type=${type}`,{
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDBiZWViYzM4MTU0M2Q1NTJjZWY4NiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMTY0Njg3OSwiZXhwIjoxNjMyMDc4ODc5fQ.IdYiAwVsC0ns3r08p9M2dgYqruDdaiuSj8KP9yg_MbM",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDBiZWViYzM4MTU0M2Q1NTJjZWY4NiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMjEyNTk5OSwiZXhwIjoxNjMyNTU3OTk5fQ.5Bd_cGbfL1hUHERLx1dJTffJOtiJyzbI2F0wzogo9ok",
           },
         });
         setContent(res.data[0]);
@@ -22,7 +22,6 @@ function Featured({ type }) {
     };
     getRandomContent()
   },[type]);
-  console.log(content.description);
   return (
     <div className="featured">
       {type && (
@@ -55,6 +54,9 @@ function Featured({ type }) {
           src={content.imgTitle}
           alt=""
         /> */}
+        <span className="title">
+          {content.imgTitle}
+        </span>
         <span className="desc">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente rem cumque porro praesentium est, quae similique, voluptatem eaque quo eum molestias ipsa nihil asperiores iusto eligendi iure expedita, necessitatibus tempora.
         </span>

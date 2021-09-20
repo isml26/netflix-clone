@@ -7,6 +7,7 @@ const router = express.Router();
 
 //CREATE LIST
 router.post("/", verify, async (req, res) => {
+    
     if (req.user.isAdmin) {
         const list = new List(req.body);
         try {

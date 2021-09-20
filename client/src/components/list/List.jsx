@@ -10,7 +10,7 @@ function List({list}) {
   const [slideNumber, setSlideNumber] = React.useState(0);
   const [isMoved,setIsMoved] = React.useState(false);
   const listRef = React.useRef();
-
+  
   const handleClick = (direction) => {
     setIsMoved(true);
     let distance = listRef.current.getBoundingClientRect().x - 50;
@@ -18,7 +18,7 @@ function List({list}) {
         setSlideNumber(slideNumber - 1);
       listRef.current.style.transform = `translateX(${232 + distance}px)`;
     }
-    if (direction === "right" && slideNumber < 5) {
+    if (direction === "right" && slideNumber <list.content.length- 6) {
         setSlideNumber(slideNumber + 1);
       listRef.current.style.transform = `translateX(${-232 + distance}px)`;
     }
