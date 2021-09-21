@@ -66,5 +66,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ![firebaseUpload](https://user-images.githubusercontent.com/62605922/134238490-4a8d8ad2-2d53-4820-b8c0-a715fdb7471b.png)
 
 
-![netflix](https://user-images.githubusercontent.com/62605922/134032854-baf32607-93ef-4332-8da6-d0ba5d0fa391.gif)
-
+![netflix](https://user-images.githubusercontent.com/62605922/134247976-c5344b2d-1383-48ea-884c-fa089476d1a7.gif)
