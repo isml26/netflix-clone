@@ -1,11 +1,14 @@
 import { InfoOutlined, Movie, PlayArrow } from "@material-ui/icons";
 import axios from "axios";
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./featured.scss";
 
 function Featured({ type }) {
   const [content,setContent] = React.useState({});
-
+  const movie = {
+    video:"https://firebasestorage.googleapis.com/v0/b/netflix-1097f.appspot.com/o/items%2FRick%20Astley%20-%20Never%20Gonna%20Give%20You%20Up%20(Official%20Music%20Video).webm?alt=media&token=51f96cc3-f179-40c3-8a7f-e8de82255803"
+  }
   useEffect(()=>{
     const getRandomContent = async()=>{
       try {
@@ -61,10 +64,12 @@ function Featured({ type }) {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente rem cumque porro praesentium est, quae similique, voluptatem eaque quo eum molestias ipsa nihil asperiores iusto eligendi iure expedita, necessitatibus tempora.
         </span>
         <div className="buttons">
+        <Link to={{pathname:"/watch",movie:movie}}> 
           <button className="play">
             <PlayArrow />
             <span>Play</span>
           </button>
+          </Link>
           <button className="more">
             <InfoOutlined />
             <span>Info</span>
