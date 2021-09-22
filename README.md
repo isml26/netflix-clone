@@ -13,6 +13,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Admin Panel
 * Authentication Processes for using JWT
 * Storing NoSQL data in mongoDB
+* Automated testing for executing tests with jest and making requests with supertest
 
 In the project directory, you can run:
 
