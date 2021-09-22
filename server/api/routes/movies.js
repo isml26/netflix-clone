@@ -21,7 +21,7 @@ router.post("/", verify, async (req, res) => {
 });
 
 //GET RANDOM MOVIE
-router.get("/random", verify, async (req, res) => {
+router.get("/random", async (req, res) => {
     const type = req.query.type; //?type=series;
     let movie;
     try {

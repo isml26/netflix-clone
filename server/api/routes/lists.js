@@ -7,7 +7,6 @@ const router = express.Router();
 
 //CREATE LIST
 router.post("/", verify, async (req, res) => {
-    
     if (req.user.isAdmin) {
         const list = new List(req.body);
         try {
@@ -37,7 +36,7 @@ router.delete("/:id", verify, async (req, res) => {
 });
 
 //GET LISTS
-router.get("/", verify, async (req, res) => {
+router.get("/", verify,async (req, res) => {
     const typeQuery = req.query.type; //?type=series
     const genreQuery = req.query.genre; //?genre=crime or // ?type=series&genre=comedy
     let list=[];

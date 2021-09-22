@@ -40,9 +40,12 @@ router.post("/login", async (req, res) => {
             password,
             ...info
         } = user._doc;
-        res.status(200).json({...info,accessToken});
+        res.setHeader("token","Bearer "+accessToken);
+        res.status(201).json({...info,accessToken});
+        
+        
     } catch (err) {
-        res.status(500).json(err);
+        return res.status(500).json(err);
     }
 })
 
