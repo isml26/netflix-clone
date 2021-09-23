@@ -9,7 +9,10 @@
       url("https://cdn.hipwallpaper.com/i/98/21/dUyCkp.jpg");
     background-size: cover;
     position: relative;
-  
+    a{
+      z-index: 1;
+      text-decoration: none;
+    }
     .top {
       .wrapper {
         padding: 20px 50px;

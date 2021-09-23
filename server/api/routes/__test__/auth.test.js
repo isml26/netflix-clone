@@ -19,5 +19,5 @@ it("responds with a jwt when given valid credentials",async()=>{
         password:"asdjaskndlş"
     })
     .expect(201);
-    expect(response.get("token")).toBeDefined();
+    expect(response.body.accessToken).toBeDefined();
 })

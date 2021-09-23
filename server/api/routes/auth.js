@@ -40,7 +40,7 @@ router.post("/login", async (req, res) => {
             password,
             ...info
         } = user._doc;
-        res.setHeader("token","Bearer "+accessToken);
+        //res.setHeader("token","Bearer "+accessToken);
         res.status(201).json({...info,accessToken});
         
         

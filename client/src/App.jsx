@@ -9,9 +9,11 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import { useContext } from "react";
+import {AuthContext} from "./context/auth/AuthContext";
 
 function App() {
-  const user = true;
+  const { user } = useContext(AuthContext);
   return (
     <Router>
       <Switch>
@@ -25,17 +27,16 @@ function App() {
         {user && (
           <>
             <Route path="/movies">
-              <Home type="movies"/>
+              <Home type="movies" />
             </Route>
             <Route path="/series">
-              <Home type="series"/>
+              <Home type="series" />
             </Route>
             <Route path="/watch">
               <Watch />
             </Route>
           </>
-          )
-        }
+        )}
       </Switch>
     </Router>
   );

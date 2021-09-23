@@ -56,7 +56,8 @@ global.signIn = async()=>{
         password:"asdjaskndlş"
     })
     .expect(201);
-    expect(response.get("token")).toBeDefined();
+
+    expect(response.body.accessToken).toBeDefined();
 
     // const userId = await response.body._id;
     // await User.findByIdAndUpdate(userId,{
@@ -65,6 +66,6 @@ global.signIn = async()=>{
     // const user = await User.findById(userId)
     // console.log(user.isAdmin);
 
-    const token = response.get("token");
+    const token = "Bearer "+response.body.accessToken;
     return token;
 }
