@@ -7,7 +7,7 @@ import "./register.scss";
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userName,setUserName] = useState("");
+  const [username,setUserName] = useState("");
   const history = useHistory();
 
   const emailRef = useRef();
@@ -24,15 +24,15 @@ export default function Register() {
     try {
       await axios.post("auth/register", {
       email,
-      userName,
+      username,
       password,
     });
+    history.push("/login");
     } catch (err) {
       console.log(err)
     }
-    history.push("/login");
   };
-
+  console.log(username)
   return (
     <div className="register">
       <div className="top">
@@ -60,8 +60,8 @@ export default function Register() {
           </div>
         ) : (
           <form className="input">
+            <input type="username" placeholder="username" ref={usernameRef} />
             <input type="password" placeholder="password" ref={passwordRef} />
-            <input type="userName" placeholder="userName" ref={usernameRef} />
             <button className="registerButton" onClick={handleFinish}>
               Start
             </button>

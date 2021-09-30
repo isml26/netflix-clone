@@ -7,7 +7,6 @@ import './watch.scss';
 function Watch() {
     const location = useLocation();
     const movie = location.movie;
-    console.log("this is the url"+movie);
     return (
         <div className="watch">
             <Link to = "/">
@@ -16,7 +15,7 @@ function Watch() {
                 Home
             </div>
             </Link>
-            <video src={movie.video} className="video" autoPlay onProgress={true} controls></video>
+            <video src={movie.video} className="video" autoPlay controls></video>
         </div>
     )
 }

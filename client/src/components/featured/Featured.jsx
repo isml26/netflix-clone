@@ -1,4 +1,4 @@
-import { InfoOutlined, Movie, PlayArrow } from "@material-ui/icons";
+import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import axios from "axios";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -12,10 +12,10 @@ function Featured({ type ,setGenre}) {
   useEffect(()=>{
     const getRandomContent = async()=>{
       try {
-        const res = await axios.get(`/movies/random?type=${type}`,{
+        const res = await axios.get(`movies/random?type=${type}`,{
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDBiZWViYzM4MTU0M2Q1NTJjZWY4NiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMjEyNTk5OSwiZXhwIjoxNjMyNTU3OTk5fQ.5Bd_cGbfL1hUHERLx1dJTffJOtiJyzbI2F0wzogo9ok",
+              "Bearer "+JSON.parse(localStorage.getItem('user')).accessToken,
           },
         });
         setContent(res.data[0]);
@@ -23,7 +23,9 @@ function Featured({ type ,setGenre}) {
         console.log(err);
       }
     };
-    getRandomContent()
+    getRandomContent();
+    return () => {
+    };
   },[type]);
   return (
     <div className="featured">
@@ -61,7 +63,7 @@ function Featured({ type ,setGenre}) {
           {content.imgTitle}
         </span>
         <span className="desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente rem cumque porro praesentium est, quae similique, voluptatem eaque quo eum molestias ipsa nihil asperiores iusto eligendi iure expedita, necessitatibus tempora.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente rem cumque porro praesentium est, quae similique, voluptatem eaque quo eum molestias ipsa nihil asperiores.
         </span>
         <div className="buttons">
         <Link to={{pathname:"/watch",movie:movie}}> 

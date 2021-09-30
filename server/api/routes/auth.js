@@ -2,7 +2,6 @@ const express = require("express");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
-
 const router = express.Router();
 
 router.post("/register", async (req, res) => {
@@ -25,13 +24,15 @@ router.post("/login", async (req, res) => {
         const user = await User.findOne({
             email: req.body.email,
         });
-        !user && res.status(401).json("Wrong password for username");
+        
+        !user && res.status(401).json("User does not exist");
 
         const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
         const originalPassword = bytes.toString(CryptoJS.enc.Utf8);
-
-        originalPassword !== req.body.password && res.status(401).json("Wrong password or email username");
-
+        
+        if(originalPassword !== req.body.password){
+            return res.status(401).json("Wrong password or email");
+        }
         const accessToken = jwt.sign({id: user._id, isAdmin: user.isAdmin }, 
         process.env.SECRET_KEY, 
         { expiresIn: "5d"});
@@ -41,7 +42,7 @@ router.post("/login", async (req, res) => {
             ...info
         } = user._doc;
         //res.setHeader("token","Bearer "+accessToken);
-        res.status(201).json({...info,accessToken});
+        return res.status(201).json({...info,accessToken});
         
         
     } catch (err) {

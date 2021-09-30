@@ -13,8 +13,6 @@ function Navbar() {
       window.onscroll = null;
     };
   };
-  console.log(isScrolled);
-
   return (
     <div className={isScrolled ? "navbar scrolled" : "navbar"}>
       <div className="container">
@@ -28,10 +26,10 @@ function Navbar() {
             <span>HomePage</span>
           </Link>
           <Link to="/series" className="link">
-            <span>Series</span>
+            <span className="navbarMainLinks">Series</span>
           </Link>
           <Link to="movies" className="link">
-            <span>Movies</span>
+            <span className="navbarMainLinks">Movies</span>
           </Link>
 
           <span>New And Popular</span>

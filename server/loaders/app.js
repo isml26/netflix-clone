@@ -7,6 +7,7 @@ const users = require("../api/routes/users");
 const movies = require("../api/routes/movies");
 const lists = require("../api/routes/lists");
 
+
 const app = express();
 
 dotenv.config();
@@ -15,11 +16,16 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true,}));
 app.use(cors());
 
+app.get("/",(req,res)=>{
+    res.send("API SERVER")
+})
 
 app.use("/api/auth",auth);
 app.use("/api/users",users);
 app.use("/api/movies",movies);
 app.use("/api/lists",lists);
+
+
 
 //const PORT = process.env.PORT || 5000 ;
 

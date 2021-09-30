@@ -18,15 +18,17 @@ function ListItem({index,item}) {
         const res = await axios.get("/movies/find/"+item,{
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDBiZWViYzM4MTU0M2Q1NTJjZWY4NiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTYzMjEyNTk5OSwiZXhwIjoxNjMyNTU3OTk5fQ.5Bd_cGbfL1hUHERLx1dJTffJOtiJyzbI2F0wzogo9ok",
+              "Bearer "+JSON.parse(localStorage.getItem('user')).accessToken,
           },
         });
         setMovie(res.data);
       } catch (err) {
-        
+        console.log(err)
       }
     }
     getMovie();
+    return () => {
+    };
   },[item])
 
   return (

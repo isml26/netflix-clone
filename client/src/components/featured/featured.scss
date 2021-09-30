@@ -1,7 +1,12 @@
+@import "../../app.scss";
+
 .featured {
   height: 90vh;
   position: relative; //our info will be positioned absolute
     .category{
+      @include mobile{
+        top: 40px;
+        }
         position: absolute;
         top: 80px;
         left: 50px;
@@ -33,14 +38,28 @@
     bottom: 80px;
     color: #fff;
     img {
-      width: 400px;
+      width: 60vh;
     }
     .title{
       font-size: 37px;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      @include mobile{
+        display: flow-root;
+        font-size: 20px;
+      }
     }
     .desc {
+      display: flex;
       margin: 20px 0px;
+
+      @include mobile{
+        max-height: 50vh;
+        width: 30vh;
+        padding-top: 0px;
+        display: inline-flexbox;
+      }
+    
+
     }
     .buttons {
       display: flex;
