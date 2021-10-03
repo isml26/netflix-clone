@@ -25,7 +25,7 @@ function Login() {
         </div>
       </div>
       <div className="container">
-        <form>
+        <form method="post">
           <h1>Sign In</h1>
           <input type="email" placeholder="Email or phone number" onChange={(e)=>setEmail(e.target.value)} />
           <input type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} />

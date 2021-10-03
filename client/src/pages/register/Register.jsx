@@ -59,7 +59,7 @@ export default function Register() {
             </button>
           </div>
         ) : (
-          <form className="input">
+          <form className="input" method="post">
             <input type="username" placeholder="username" ref={usernameRef} />
             <input type="password" placeholder="password" ref={passwordRef} />
             <button className="registerButton" onClick={handleFinish}>
