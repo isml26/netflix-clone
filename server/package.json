@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js --ignore client",
+    "start": "node index.js --ignore client",
+    "heroku-postbuild":"cd client && npm install && npm run build",
     "test":"jest --watchAll"
   },
   "jest":{

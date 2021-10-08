@@ -1,5 +1,5 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./featured.scss";
@@ -12,7 +12,7 @@ function Featured({ type ,setGenre}) {
   useEffect(()=>{
     const getRandomContent = async()=>{
       try {
-        const res = await axios.get(`movies/random?type=${type}`,{
+        const res = await axiosInstance.get(`movies/random?type=${type}`,{
           headers: {
             token:
               "Bearer "+JSON.parse(localStorage.getItem('user')).accessToken,

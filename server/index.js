@@ -1,6 +1,7 @@
 // const express = require("express");
 const mongoose = require("mongoose");  
 const dotenv =  require("dotenv");
+const express = require("express");
 // // const cors = require("cors");
 // const auth = require("./api/routes/auth");
 // const users = require("./api/routes/users");
@@ -31,6 +32,11 @@ dotenv.config();
 const PORT = process.env.PORT || 5000 ;
 
 const app = require("./loaders/app");
+
+app.use(express.static(path.join(__dirname,"/client/build")));
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'/client/build', 'index.html'));
+})
 
 app.listen(PORT, ()=>{
     console.log(`App started on ${PORT}`);

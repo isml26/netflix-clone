@@ -1,5 +1,5 @@
 import "./home.scss";
-import axios from "axios";
+import {axiosInstance} from "../../config";
 import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Featured from "../../components/featured/Featured";
@@ -12,7 +12,7 @@ function Home({ type }) {
   useEffect(() => {
     const getRandomLists = async () => {
       try {
-        const res = await axios.get(
+        const res = await axiosInstance.get(
           `lists${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
           }`,
